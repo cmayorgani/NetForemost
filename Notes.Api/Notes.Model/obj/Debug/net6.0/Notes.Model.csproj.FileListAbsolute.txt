@@ -1,0 +1,12 @@
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\bin\Debug\net6.0\Notes.Model.deps.json
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\bin\Debug\net6.0\Notes.Model.dll
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\bin\Debug\net6.0\Notes.Model.pdb
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.csproj.AssemblyReference.cache
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.AssemblyInfoInputs.cache
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.AssemblyInfo.cs
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.csproj.CoreCompileInputs.cache
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.dll
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\refint\Notes.Model.dll
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\Notes.Model.pdb
+D:\Desarrollo\2022\NetForemost\Solution\Notes.Api\Notes.Model\obj\Debug\net6.0\ref\Notes.Model.dll
