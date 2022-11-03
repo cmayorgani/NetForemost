@@ -6,20 +6,20 @@
    "FilterSchemas": false,
    "IncludeConnectionString": true,
    "ModelNamespace": null,
-   "OutputContextPath": null,
+   "OutputContextPath": "Contex",
    "OutputPath": "Model",
    "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "Notes.Model",
+   "ProjectRootNamespace": "Data",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[siasani_notes].[not_notes]",
+         "Name": "[siasani_notes].[notes]",
          "ObjectType": 0
       }
    ],
-   "UiHint": "",
+   "UiHint": "WDB2.siasani_notes",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

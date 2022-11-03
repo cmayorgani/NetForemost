@@ -7,20 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="cnxConfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="cnxConfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Notes.Infraestructure\Notes.Infraestructure.csproj" />
-    <ProjectReference Include="..\Notes.Model\Notes.Model.csproj" />
+    <ProjectReference Include="..\Notes.Model\Notes.Models.csproj" />
   </ItemGroup>
 
 </Project>

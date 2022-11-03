@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj": {}
+    "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj": {}
   },
   "projects": {
-    "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj": {
+    "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj",
+        "projectUniqueName": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj",
         "projectName": "Notes.Infraestructure",
-        "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj",
+        "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj",
         "packagesPath": "C:\\Users\\cmayo\\.nuget\\packages\\",
-        "outputPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Infraestructure\\obj\\",
+        "outputPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -34,8 +34,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj": {
-                "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj"
+              "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj": {
+                "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj": {
+    "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj",
-        "projectName": "Notes.Model",
-        "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj",
+        "projectUniqueName": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj",
+        "projectName": "Notes.Models",
+        "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj",
         "packagesPath": "C:\\Users\\cmayo\\.nuget\\packages\\",
-        "outputPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\obj\\",
+        "outputPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

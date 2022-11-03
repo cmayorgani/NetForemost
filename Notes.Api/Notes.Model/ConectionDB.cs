@@ -1,30 +1,26 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
-namespace Notes.Model
+namespace Notes.Models
 {
-    public static class ConectionDB
+    public class ConectionDB
     {
-        public static string GenConectionStr()
+        private readonly IConfiguration _configuration;
+
+        public ConectionDB(IConfiguration configuration)
         {
-            //string valReturn = "\"Data Source=198.38.83.200;Initial Catalog=siasani_notes;Persist Security Info=True;User ID=siasani_notes;Password=Facilito**123\"";
+            _configuration = configuration;
+        }
+        public string GenConectionStr()
+        {
             string valReturn = "";
-            using (StreamReader cfgConnection = File.OpenText(@"cnxConfig.json"))
-            {
-                dynamic dtaCfg = JsonConvert.DeserializeObject(cfgConnection.ReadToEnd());
-                
-                valReturn = "Data Source=" + dtaCfg["Server"];
-                valReturn += ";Initial Catalog=" + dtaCfg["DataBase"];
-                valReturn += ";Persist Security Info = True";
-                valReturn += ";User ID=" + dtaCfg["User"];
-                valReturn += ";Password=" + dtaCfg["Password"];
-            }
+            dynamic dtaCfg = _configuration.GetSection("Connection");
 
-
+            valReturn = "Data Source=" + dtaCfg["Server"];
+            valReturn += ";Initial Catalog=" + dtaCfg["DataBase"];
+            valReturn += ";Persist Security Info = True";
+            valReturn += ";User ID=" + dtaCfg["User"];
+            valReturn += ";Password=" + dtaCfg["Password"];
 
             return valReturn;
         }

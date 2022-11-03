@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iLMvqdRmymrZtLxu9uBbtMYuQTDW5LWFj96/uiPjJ3Tnvui1MIZUJWazuicB4cokoW3AsmfWDfBpzL5osFkaLg==",
+  "dgSpecHash": "xER55h2obAB+SrmqbtfCvZKZ+IrfaRiOObdnFMdtuyKT+f8vMx9ziDgjw9Dqg9tZRZK8lN69zmU39ic/3c8LDQ==",
   "success": true,
-  "projectFilePath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj",
+  "projectFilePath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Infraestructure\\Notes.Infraestructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cmayo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\cmayo\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

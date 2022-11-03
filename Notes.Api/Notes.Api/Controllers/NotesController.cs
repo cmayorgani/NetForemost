@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Notes.Infraestructure;
 using Notes.Infraestructure.Interfaces;
-using Notes.Infraestructure.Notes.Service;
+using System.Text.Json;
+using Mdl = Data.Model;
 
 namespace Notes.Api.Controllers
 {
@@ -19,7 +19,7 @@ namespace Notes.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Notes([FromQuery] string KeyAPI)
+        public async Task<IActionResult> Notes([FromHeader] string KeyAPI)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace Notes.Api.Controllers
 
         [HttpDelete]
         [Route("{NoteId}")]
-        public async Task<IActionResult> Remove([FromQuery] string KeyAPI, [FromRoute] long NoteId)
+        public async Task<IActionResult> Remove([FromHeader] string KeyAPI, [FromRoute] long NoteId)
         {
             try
             {
@@ -64,13 +64,15 @@ namespace Notes.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromQuery] string KeyAPI, [FromHeader] string DataNote)
+        public async Task<IActionResult> Create([FromHeader] string KeyAPI, [FromBody] string RequestData)
         {
             try
             {
+                Mdl.Notes request = JsonSerializer.Deserialize<Mdl.Notes>(RequestData);
+
                 if (!string.IsNullOrEmpty(KeyAPI) && KeyAPI == _configuration.GetValue<string>("Key"))
                 {
-                    var response = await _notesService.AddNoteAsync(DataNote);
+                    var response = await _notesService.AddNoteAsync(request);
                     return Ok(response);
                 }
                 else
@@ -88,13 +90,15 @@ namespace Notes.Api.Controllers
 
         [HttpPut]
         [Route("{NoteId}")]
-        public async Task<IActionResult> Update([FromQuery] string KeyAPI, [FromRoute] long NoteId, [FromHeader] string DataNote)
+        public async Task<IActionResult> Update([FromHeader] string KeyAPI, [FromBody] string RequestData, [FromRoute] long NoteId)
         {
             try
             {
+                Mdl.Notes request = JsonSerializer.Deserialize<Mdl.Notes>(RequestData);
+
                 if (!string.IsNullOrEmpty(KeyAPI) && KeyAPI == _configuration.GetValue<string>("Key"))
                 {
-                    var response = await _notesService.ModNotesAsync(NoteId, DataNote);
+                    var response = await _notesService.ModNotesAsync(NoteId, request);
                     return Ok(response);
                 }
                 else

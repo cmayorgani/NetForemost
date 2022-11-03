@@ -1,4 +1,5 @@
 ﻿using Notes.Infraestructure.Globals.DTO;
+using Mdl = Data.Model;
 
 namespace Notes.Infraestructure.Interfaces
 {
@@ -6,7 +7,7 @@ namespace Notes.Infraestructure.Interfaces
     {
         Task<DataApisDto> GetNotesAsync();
         Task<DataApisDto> DelNoteAsync(long noteId);
-        Task<DataApisDto> AddNoteAsync(string noteDta);
-        Task<DataApisDto> ModNotesAsync(long noteId, string noteDta);
+        Task<DataApisDto> AddNoteAsync(Mdl.Notes noteDta);
+        Task<DataApisDto> ModNotesAsync(long noteId, Mdl.Notes noteDta);
     }
 }

@@ -6,11 +6,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 
-import LstNotes from '../notes/list';
+import LstNotes from '../../components/notes/list';
 import * as actNotes from "../../redux/notes/actions";
-import Filtro from "../search";
-import Message from "../message";
-import Sort from "../sort";
+import Filtro from "../../components/search";
+import Message from "../../components/message";
+import Sort from "../../components/sort";
 
 const Component = () => {
     const dispatch = useDispatch();

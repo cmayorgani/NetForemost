@@ -1957,11 +1957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj",
-      "projectName": "Notes.Model",
-      "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\Notes.Model.csproj",
+      "projectUniqueName": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj",
+      "projectName": "Notes.Models",
+      "projectPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\Notes.Models.csproj",
       "packagesPath": "C:\\Users\\cmayo\\.nuget\\packages\\",
-      "outputPath": "D:\\Desarrollo\\2022\\NetForemost\\Solution\\Notes.Api\\Notes.Model\\obj\\",
+      "outputPath": "D:\\Desarrollo\\2022\\NetForemost\\NetForemost\\Notes.Api\\Notes.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

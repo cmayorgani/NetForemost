@@ -1,4 +1,4 @@
 {
-    "apiUrl" : "https://localhost:7145/api",
+    "apiUrl" : "https://localhost:7145/api/Notes",
     "apiKey" : "FCEF8D1C51A41729A43B72931FA9A"
 }

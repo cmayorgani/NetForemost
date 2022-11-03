@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.Api", "Notes.Api\Notes.Api.csproj", "{F81BC1D5-5AC5-4740-8AFA-A47E434C5B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notes.Api", "Notes.Api\Notes.Api.csproj", "{F81BC1D5-5AC5-4740-8AFA-A47E434C5B78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.Infraestructure", "Notes.Infraestructure\Notes.Infraestructure.csproj", "{72613F1C-193D-4899-9462-4993DC320DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notes.Infraestructure", "Notes.Infraestructure\Notes.Infraestructure.csproj", "{72613F1C-193D-4899-9462-4993DC320DA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.Model", "Notes.Model\Notes.Model.csproj", "{A242C209-834E-4D2A-B7CB-5CCC311D8751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notes.Models", "Notes.Model\Notes.Models.csproj", "{A242C209-834E-4D2A-B7CB-5CCC311D8751}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

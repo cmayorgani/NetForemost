@@ -1,12 +1,11 @@
 import axios from "axios";
 import config from "../glbconfig.json";
 
-const BaseUrl = config.apiUrl;
-
 const getaxios = axios.create({
-    baseUrl: BaseUrl,
+    baseUrl: config.apiUrl,
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        KeyAPI: config.apiKey,
     }
 });
 

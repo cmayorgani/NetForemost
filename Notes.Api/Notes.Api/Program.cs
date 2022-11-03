@@ -1,3 +1,4 @@
+using Data.Contex;
 using Notes.Infraestructure.Interfaces;
 using Notes.Infraestructure.Notes.Service;
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<INotesService, NotesService>();
+builder.Services.AddScoped<notesCntx, notesCntx>();
 
 builder.Services.AddCors(options =>
 {

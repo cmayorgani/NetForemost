@@ -1,42 +1,38 @@
-﻿using Notes.Infraestructure.Globals.DTO;
+﻿using Data.Contex;
+using Notes.Infraestructure.Globals.DTO;
 using Notes.Infraestructure.Interfaces;
-using Notes.Model;
-using Notes.Model.Model;
-using System.Runtime.ConstrainedExecution;
 using System.Text.Json;
+using Mdl = Data.Model;
 
 namespace Notes.Infraestructure.Notes.Service
 {
     public class NotesService : INotesService
     {
-        public NotesService()
+        private readonly notesCntx _notesContex;
+        public NotesService(notesCntx notesContex)
         {
+            _notesContex = notesContex;
         }
 
-        public async Task<DataApisDto> AddNoteAsync(string noteDta)
+        public async Task<DataApisDto> AddNoteAsync(Mdl.Notes noteDta)
         {
             DataApisDto retDataAPI = new();
 
             try
             {
-                using (notesCntx curCnx = new())
-                {
-                    NotNotes CurNote = JsonSerializer.Deserialize<NotNotes>(noteDta);
+                Mdl.Notes NewNote = new();
 
-                    NotNotes NewNote = new();
+                NewNote.Title = noteDta.Title;
+                NewNote.Body = noteDta.Body;
 
-                    NewNote.NotTitle = CurNote.NotTitle;
-                    NewNote.NotBody = CurNote.NotBody;
+                _notesContex.Notes.Add(NewNote);
+                _notesContex.SaveChanges();
 
-                    curCnx.NotNotes.Add(NewNote);
-                    curCnx.SaveChanges();
+                noteDta = _notesContex.Notes.OrderBy(x => x.Id).Last();
 
-                    CurNote = curCnx.NotNotes.OrderBy(x => x.NotId).Last();
-
-                    retDataAPI.Notes = JsonSerializer.Serialize(CurNote);
-                    retDataAPI.Message = "OK";
-                    retDataAPI.IsOk = true;
-                }
+                retDataAPI.Notes = JsonSerializer.Serialize(noteDta);
+                retDataAPI.Message = "OK";
+                retDataAPI.IsOk = true;
             }
             catch (Exception exErr)
             {
@@ -61,26 +57,23 @@ namespace Notes.Infraestructure.Notes.Service
 
             try
             {
-                using (notesCntx curCnx = new())
+                if (_notesContex.Notes.Where(x => x.Id == noteId).Count() == 1)
                 {
-                    if (curCnx.NotNotes.Where(x => x.NotId == noteId).Count() == 1)
-                    {
-                        NotNotes CurNote = curCnx.NotNotes.Where(x => x.NotId == noteId).First();
+                    Mdl.Notes CurNote = _notesContex.Notes.Where(x => x.Id == noteId).First();
 
-                        retDataAPI.Notes = JsonSerializer.Serialize(CurNote);
+                    retDataAPI.Notes = JsonSerializer.Serialize(CurNote);
 
-                        curCnx.NotNotes.Remove(CurNote);
-                        curCnx.SaveChanges();
+                    _notesContex.Notes.Remove(CurNote);
+                    _notesContex.SaveChanges();
 
-                        retDataAPI.Message = "OK";
-                        retDataAPI.IsOk = true;
-                    }
-                    else
-                    {
-                        retDataAPI.Notes = "";
-                        retDataAPI.Message = "Note " + noteId.ToString() + " not exist";
-                        retDataAPI.IsOk = false;
-                    }
+                    retDataAPI.Message = "OK";
+                    retDataAPI.IsOk = true;
+                }
+                else
+                {
+                    retDataAPI.Notes = "";
+                    retDataAPI.Message = "Note " + noteId.ToString() + " not exist";
+                    retDataAPI.IsOk = false;
                 }
             }
             catch (Exception exErr)
@@ -105,10 +98,8 @@ namespace Notes.Infraestructure.Notes.Service
 
             try
             {
-                using (notesCntx curCnx = new())
-                {
-                    retDataAPI.Notes = JsonSerializer.Serialize(curCnx.NotNotes.ToList());
-                }
+                retDataAPI.Notes = JsonSerializer.Serialize(_notesContex.Notes.ToList());
+
                 retDataAPI.Message = "OK";
                 retDataAPI.IsOk = true;
             }
@@ -128,37 +119,32 @@ namespace Notes.Infraestructure.Notes.Service
             return retDataAPI;
         }
 
-        public async Task<DataApisDto> ModNotesAsync(long noteId, string noteDta)
+        public async Task<DataApisDto> ModNotesAsync(long noteId, Mdl.Notes noteDta)
         {
             DataApisDto retDataAPI = new();
 
             try
             {
-                using (notesCntx curCnx = new notesCntx())
+                if (_notesContex.Notes.Where(x => x.Id == noteId).Count() == 1)
                 {
-                    if (curCnx.NotNotes.Where(x => x.NotId == noteId).Count() == 1)
-                    {
-                        NotNotes CurNote = JsonSerializer.Deserialize<NotNotes>(noteDta);
+                    Mdl.Notes ModNote = _notesContex.Notes.Where(x => x.Id == noteId).First();
 
-                        NotNotes ModNote = curCnx.NotNotes.Where(x => x.NotId == noteId).First();
+                    ModNote.Title = noteDta.Title;
+                    ModNote.Body = noteDta.Body;
+                    ModNote.Modified = DateTime.Now;
 
-                        ModNote.NotTitle = CurNote.NotTitle;
-                        ModNote.NotBody = CurNote.NotBody;
-                        ModNote.NotFechamod = DateTime.Now;
+                    _notesContex.Notes.Update(ModNote);
+                    _notesContex.SaveChanges();
 
-                        curCnx.NotNotes.Update(ModNote);
-                        curCnx.SaveChanges();
-
-                        retDataAPI.Notes = JsonSerializer.Serialize(ModNote);
-                        retDataAPI.Message = "OK";
-                        retDataAPI.IsOk = true;
-                    }
-                    else
-                    {
-                        retDataAPI.Notes = "";
-                        retDataAPI.Message = "Note " + noteId.ToString() + " not exist";
-                        retDataAPI.IsOk = false;
-                    }
+                    retDataAPI.Notes = JsonSerializer.Serialize(ModNote);
+                    retDataAPI.Message = "OK";
+                    retDataAPI.IsOk = true;
+                }
+                else
+                {
+                    retDataAPI.Notes = "";
+                    retDataAPI.Message = "Note " + noteId.ToString() + " not exist";
+                    retDataAPI.IsOk = false;
                 }
             }
             catch (Exception exErr)
@@ -172,7 +158,6 @@ namespace Notes.Infraestructure.Notes.Service
                     retDataAPI.Message += exErr.InnerException.Message;
                 }
             }
-
 
             return retDataAPI;
 

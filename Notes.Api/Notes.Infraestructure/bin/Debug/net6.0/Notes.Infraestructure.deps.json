@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Notes.Infraestructure/1.0.0": {
         "dependencies": {
-          "Notes.Model": "1.0.0"
+          "Notes.Models": "1.0.0"
         },
         "runtime": {
           "Notes.Infraestructure.dll": {}
@@ -464,13 +464,13 @@
           }
         }
       },
-      "Notes.Model/1.0.0": {
+      "Notes.Models/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "Notes.Model.dll": {}
+          "Notes.Models.dll": {}
         }
       }
     }
@@ -768,7 +768,7 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
-    "Notes.Model/1.0.0": {
+    "Notes.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
