@@ -15,7 +15,7 @@ const Component = () => {
     const noteId = showNote.noteId;
 
     const getNote = () => {
-        const curNote = dtaNoteGlb?.filter(note => note.NotId == noteId)[0];
+        const curNote = dtaNoteGlb?.filter(note => note.Id == noteId)[0];
         return curNote;
     };
 
@@ -23,8 +23,8 @@ const Component = () => {
 
     const [showPopup, setShowPopup] = useState(showNote.isShow === undefined ? false : showNote.isShow);
 
-    const [noteTitle, setNoteTitle] = useState(dtaNote == undefined ? "" : dtaNote.NotTitle);
-    const [noteBody, setNoteBody] = useState(dtaNote == undefined ? "" : dtaNote.NotBody);
+    const [noteTitle, setNoteTitle] = useState(dtaNote == undefined ? "" : dtaNote.Title);
+    const [noteBody, setNoteBody] = useState(dtaNote == undefined ? "" : dtaNote.Body);
 
     useEffect(() => {
         setShowPopup(showNote.isShow === undefined ? false : showNote.isShow);
@@ -37,7 +37,7 @@ const Component = () => {
 
     const saveNote = () => {
 
-        const noteDta = { NotTitle: noteTitle, NotBody: noteBody };
+        const noteDta = { Title: noteTitle, Body: noteBody };
 
         if (noteId > 0) {
             dispatch(actNotes.modNote(noteId, noteDta));

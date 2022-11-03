@@ -13,15 +13,9 @@ export const App = () => {
 
   Promise.all([
     dispatch(actNotes.sortNote({ sortField: 'title', sortType: 'desc' })),
-  ]).catch(razon => {
-    console.log({ "Promise_Init-Order": razon })
-  });
-
-
-  Promise.all([
     dispatch(actNotes.getNotes()),
   ]).catch(razon => {
-    console.log({ "Promise_Init-GetList": razon })
+    console.log({ "Promise_Init": razon })
   });
 
   return (

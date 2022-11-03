@@ -11,21 +11,21 @@ const Component = (props) => {
     const dtaNote = props.note;
 
     const removeNote = () => {
-        dispatch(actNotes.delNote(dtaNote.NotId));
+        dispatch(actNotes.delNote(dtaNote.Id));
     };
 
     const modifyNote = () => {
-        dispatch(actNotes.shwNote(dtaNote.NotId, true));
+        dispatch(actNotes.shwNote(dtaNote.Id, true));
     };
 
     const getTitle = () => {
 
-        const getDate = (new Date(dtaNote.NotFechamod != null ? dtaNote.NotFechamod : dtaNote.NotFechaadd)).toLocaleString();
-        const isNewLabel = dtaNote.NotFechamod != null ? "Modified : " : "Created : ";
+        const getDate = (new Date(dtaNote.Modified != null ? dtaNote.Modified : dtaNote.Added)).toLocaleString();
+        const isNewLabel = dtaNote.Modified != null ? "Modified : " : "Created : ";
 
         const valRet = <div className="col-12 d-flex flex-row">
-            <div className="col-1">{ dtaNote.NotTitle }</div>
-            <div className="col-11 d-flex justify-content-end">{ isNewLabel }{ getDate }</div>
+            <div className="col-6">{ dtaNote.Title }</div>
+            <div className="col-6 d-flex justify-content-end">{ isNewLabel }{ getDate }</div>
         </div>;
         
         return valRet;        
@@ -37,7 +37,7 @@ const Component = (props) => {
             <Card className="col-sm-11 col-md-5 m-3 p-2">
                 <Card.Body>
                     <Card.Title>{getTitle()}<hr /></Card.Title>
-                    <Card.Text className="card-text">{dtaNote.NotBody}</Card.Text>
+                    <Card.Text className="card-text">{dtaNote.Body}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                     <div className="col-12 d-flex justify-content-center flex-row">

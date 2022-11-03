@@ -18,30 +18,30 @@ const Component = () => {
             case 'title':
                 notesFilterSort = dtaNotes?.sort(function (a, b) {
                     if (sortNote.sortType == 'asc') {
-                        if (a.NotTitle.toLowerCase() < b.NotTitle.toLowerCase()) return -1;
+                        if (a.Title.toLowerCase() < b.Title.toLowerCase()) return -1;
                     }
                     else {
-                        if (a.NotTitle.toLowerCase() > b.NotTitle.toLowerCase()) return -1;
+                        if (a.Title.toLowerCase() > b.Title.toLowerCase()) return -1;
                     }
                     return 0;
                 });
             case 'body':
                 notesFilterSort = dtaNotes?.sort(function (a, b) {
                     if (sortNote.sortType == 'asc') {
-                        if (a.NotBody.toLowerCase() < b.NotBody.toLowerCase()) return -1;
+                        if (a.Body.toLowerCase() < b.Body.toLowerCase()) return -1;
                     }
                     else {
-                        if (a.NotBody.toLowerCase() > b.NotBody.toLowerCase()) return -1;
+                        if (a.Body.toLowerCase() > b.Body.toLowerCase()) return -1;
                     }
                     return 0;
                 });
             case 'date':
                 notesFilterSort = dtaNotes?.sort(function (a, b) {
                     if (sortNote.sortType == 'asc') {
-                        if (a.NotFechamod == null ? a.NotFechaadd : a.NotFechamod < b.NotFechamod == null ? b.NotFechaadd : b.NotFechamod) return -1;
+                        if (a.Modified == null ? a.Added : a.Modified < b.Modified == null ? b.Added : b.Modified) return -1;
                     }
                     else {
-                        if (a.NotFechamod == null ? a.NotFechaadd : a.NotFechamod > b.NotFechamod == null ? b.NotFechaadd : b.NotFechamod) return -1;
+                        if (a.Modified == null ? a.Added : a.Modified > b.Modified == null ? b.Added : b.Modified) return -1;
                     }
                     return 0;
                 });
@@ -52,7 +52,7 @@ const Component = () => {
         if (dtaNotes != undefined && Array.isArray(dtaNotes) && dtaNotes.length > 0) {
             if (filterNote != "") {
                 const strFilter = filterNote.toLowerCase()
-                const notesFilter = notesFilterSort?.filter(note => note.NotTitle.toLowerCase().includes(strFilter) || note.NotBody.toLowerCase().includes(strFilter));
+                const notesFilter = notesFilterSort?.filter(note => note.Title.toLowerCase().includes(strFilter) || note.Body.toLowerCase().includes(strFilter));
                 valRet = notesFilter?.map((dtanote, idx) => <CtrlNoteVw key={idx} note={dtanote} />);
             }
             else {
