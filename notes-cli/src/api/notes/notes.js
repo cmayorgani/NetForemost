@@ -25,31 +25,34 @@ export const delNote = (noteId) => {
 
 //Create one note
 export const addNote = (dtaNote) => {
-    return axios({
+    const DtaRequest = { 'DataNote': { ...dtaNote } };
+    const AxiosCfg = {
         method: 'post',
         url: config.apiUrl,
         headers: {
-            'Content-Type': 'application/json',
             KeyAPI: config.apiKey,
         },
-        data: {
-            DataNote: { ...dtaNote }
-        }
-    });
+        data: { ...DtaRequest }
+    };
+
+    console.log({ AxiosCfg: AxiosCfg });
+
+    return axios(AxiosCfg);
 };
 
 //Update one Note
 export const modNote = (noteId, dtaNote) => {
-    return axios({
+    const DtaRequest = { 'DataNote': { ...dtaNote } };
+    const AxiosCfg = {
         method: 'put',
         url: config.apiUrl + "/" + noteId,
         headers: {
-            'Content-Type': 'application/json',
             KeyAPI: config.apiKey,
         },
-        data: {
-            DataNote: { ...dtaNote }
-        }
-    });
+        data: { ...DtaRequest }
+    }
 
+    console.log({ AxiosCfg: AxiosCfg });
+
+    return axios(AxiosCfg);
 };

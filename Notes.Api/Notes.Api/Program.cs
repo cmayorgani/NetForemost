@@ -1,4 +1,6 @@
 using Data.Contex;
+using Fluent.Infrastructure.FluentModel;
+using Microsoft.EntityFrameworkCore;
 using Notes.Infraestructure.Interfaces;
 using Notes.Infraestructure.Notes.Service;
 
@@ -11,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<INotesService, NotesService>();
-builder.Services.AddScoped<notesCntx, notesCntx>();
+builder.Services.AddDbContext<notesCntx>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
 
 builder.Services.AddCors(options =>
 {

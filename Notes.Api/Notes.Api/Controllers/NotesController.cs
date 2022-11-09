@@ -64,15 +64,13 @@ namespace Notes.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromHeader] string KeyAPI, [FromBody] string RequestData)
+        public async Task<IActionResult> Create([FromHeader] string KeyAPI, [FromBody] Mdl.Notes RequestData)
         {
             try
             {
-                Mdl.Notes request = JsonSerializer.Deserialize<Mdl.Notes>(RequestData);
-
                 if (!string.IsNullOrEmpty(KeyAPI) && KeyAPI == _configuration.GetValue<string>("Key"))
                 {
-                    var response = await _notesService.AddNoteAsync(request);
+                    var response = await _notesService.AddNoteAsync(RequestData);
                     return Ok(response);
                 }
                 else
@@ -90,15 +88,13 @@ namespace Notes.Api.Controllers
 
         [HttpPut]
         [Route("{NoteId}")]
-        public async Task<IActionResult> Update([FromHeader] string KeyAPI, [FromBody] string RequestData, [FromRoute] long NoteId)
+        public async Task<IActionResult> Update([FromRoute] long NoteId, [FromHeader] string KeyAPI, [FromBody] Mdl.Notes RequestData)
         {
             try
             {
-                Mdl.Notes request = JsonSerializer.Deserialize<Mdl.Notes>(RequestData);
-
                 if (!string.IsNullOrEmpty(KeyAPI) && KeyAPI == _configuration.GetValue<string>("Key"))
                 {
-                    var response = await _notesService.ModNotesAsync(NoteId, request);
+                    var response = await _notesService.ModNotesAsync(NoteId, RequestData);
                     return Ok(response);
                 }
                 else

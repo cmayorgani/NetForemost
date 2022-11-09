@@ -37,7 +37,7 @@ const Component = () => {
 
     const saveNote = () => {
 
-        const noteDta = { Title: noteTitle, Body: noteBody };
+        const noteDta = { 'Title': noteTitle, 'Body': noteBody };
 
         if (noteId > 0) {
             dispatch(actNotes.modNote(noteId, noteDta));
